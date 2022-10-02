@@ -6,25 +6,32 @@ import java.util.Scanner;
 public class Cafe {
     ArrayList<String> coffeeMenu = new ArrayList<>();
 
-    public Cafe(ArrayList<String> coffeeMenu) {
-        this.coffeeMenu = coffeeMenu;
-    }
-        public void loadMenuData() {
 
-            File file = new File("coffees.txt");
-            try {
-                Scanner scan = new Scanner(file);
+    public void loadMenuData() {
 
-                while (scan.hasNextLine()) {
-                    coffeeMenu.add(scan.nextLine());
-                }
+        File file = new File("Coffees.txt");
+        try {
+            Scanner scan = new Scanner(file);
 
-            } catch (FileNotFoundException e) {
-                System.out.println("File not found. Check path and filename");
+            while (scan.hasNextLine()) {
+                coffeeMenu.add(scan.nextLine());
             }
 
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found. Check path and filename");
         }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Cafe{" +
+                "coffeeMenu=" + coffeeMenu +
+                '}';
+    }
 }
+
+
 
 
 
